@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Coding GUI</title>
+    <script type="text/javascript" src="/eel.js"></script>
+
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div class="header">
+        <div class="dropdown">
+            <button onclick="drop('help')" class="dropbtn">Help</button>
+            <div id="help" class="dropdown-content">
+              <a href="https://github.com/samuelhwilliams/Eel">External Library Documentation</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button onclick="drop('open')" class="dropbtn">Clear</button>
+            <div id="open" class="dropdown-content">
+              <a onclick="clearConsoleInput()">Clear Console Input</a>
+              <a onclick="clearConsole()">Clear Console Output</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button onclick="drop('view')" class="dropbtn">View Mode</button>
+            <div id="view" class="dropdown-content">
+              <a onclick="minimalView()">Minimal View</a>
+              <a onclick="productiveView()">Productive View</a>
+            </div>
+          </div>
+          <a id = "cred" href="credits.html">Credits</a>
+
+    </div>
+    <div class="main">
+        
+        <div class="antenna">
+            <canvas height="230" width="350" id = "draw">Visual representation of antenna</canvas>
+        </div>
+        <div class="console">
+            <h1>CONSOLE INPUT</h1>
+            <textarea spellcheck="false" name="" id="console" cols="30" rows="10"></textarea>
+        </div>
+        <div class="inputbuttons">
+            <button onclick = "blockinput('move x y')">move x y</button>
+            <button onclick = "blockinput('stow')">stow</button>
+            <button onclick = "blockinput('load file')">load file</button>
+            <button onclick = "blockinput('begin file')">begin file</button>
+            <button onclick = "blockinput('end')">end</button>
+            <button onclick = "blockinput('collect file time')">collect file time</button>
+        </div>
+        <div class="output">
+            <h1>CONSOLE OUTPUT</h1>
+            <textarea id = "consoleOutput" spellcheck="false" name="" class="block" cols="35" rows="20"></textarea>
+        </div>
+        <div class="scriptbuilder">
+            <h1>SCRIPT BUILDER</h1>
+            <textarea id="builder" cols="30" spellcheck="false" rows="20"></textarea>
+        </div>
+        <div class="settings">
+            <p>Input Button Target Toggle</p>
+            <label class="toggle">
+                <input type="checkbox"  onclick="settingsToggle('toggled')">                
+                <span class="slider"></span>
+            </label>
+            <p id='toggled' style="display: none;">Enabled For Builder</p>
+            <p>Light Mode Toggle</p>
+            <label class="toggle">
+                <input type="checkbox"  onclick="settingsToggle('lightmode')">                
+                <span class="slider"></span>
+            </label>
+            <p id='lightmode' style="display: none;">Light Mode Enabled</p>
+            <p>Script Generator</p>
+            <label class="toggle">
+              <button onclick = "generateScript()">Save Script</button>
+              <input type="text" name="" placeholder='name of script' id="visible">
+            </label>
+          </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
